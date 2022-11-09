@@ -1,0 +1,19 @@
+<%- include("header"); -%>
+
+<h1>HOME</h1>
+<p><%= startingContent %></p>
+
+<% posts.forEach(function(post) { %>
+    <div class="root">
+    <div class="card">
+        <div class="title">
+        <h1> <%= post.title %> </h1>
+        </div>
+        <div class="content">
+    <p> <%= post.content.substring(0,50) + " ..." %>
+    <a href="/posts/<%= post._id %>">Read More</a>
+    </p>
+    </div>
+    </div>
+    <%  }) %>
+</div>

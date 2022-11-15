@@ -19,6 +19,7 @@ app.set("view engine" , "ejs")
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static("public"))
 
+
 mongoose.connect("mongodb://localhost:27017/blogDB");
 
 const postSchema = {
@@ -70,20 +71,42 @@ app.get("/posts/:postId", (req,res) =>{
       title: post.title,
       content: post.content,
     });
-    
-    
-
   });
 })
 
-app.get("/delete", (req,res) =>{
-  Post.find({}, function(err, posts){
-    res.render("delete", {startingContent: homeDetails, posts: posts})
-  })
 
+const myDetail = {
+  name: "Admin-ajith",
+  password: "Ajith123"
+}
+
+
+
+app.post('/login' , (req,res) =>{
+  if(req.body.name === myDetail.name && req.body.password === myDetail.password){
+    res.redirect("/deleteejs")
+    console.log("SUCESS");
+  }else{
+    res.redirect("/")
+  }
 })
 
- app.post("/deletepost" , (req,res) =>{
+
+
+  app.get("/delete", (req,res) =>{
+    res.render("login")
+    
+  })
+
+  app.get("/deleteejs", (req,res) =>{
+    Post.find({}, function(err, posts){
+    res.render("delete", {startingContent: homeDetails, posts: posts})
+    })
+  })
+
+
+  
+app.post("/deletepost" , (req,res) =>{
   const cheecedItems = req.body.chkbox
   Post.findByIdAndRemove(cheecedItems, function (err) {
     if (err) {
@@ -94,18 +117,9 @@ app.get("/delete", (req,res) =>{
     }
   })
  })
-// app.post("/deleterote", (req,res) =>{
-//   const checkedItem = req.body.chkbox
-//   Item.findByIdAndRemove(checkedItem, function (err) {
-//       if (err) {
-//           console.log(err);
-//       } else {
-//           console.log("SUCCESSFULLY DELETED");
-//           res.redirect("/")
-//       }
-//   })
-// })
+
 
 app.listen(4000, () => {
     console.log("server Started");
 })
+

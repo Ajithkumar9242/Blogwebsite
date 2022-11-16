@@ -8,8 +8,6 @@ let posts = []
 
 const homeDetails = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem fugiat delectus iure totam, odio, tempore ea, aut autem eaque recusandae aliquam nulla tempora laboriosam possimus praesentium repellat quos blanditiis porro voluptatibus."
 
-const aboutContent = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem fugiat delectus iure totam, odio, tempore ea, aut autem eaque recusandae aliquam nulla tempora laboriosam possimus praesentium repellat quos blanditiis porro voluptatibus."
-
 const contactContent = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem fugiat delectus iure totam, odio, tempore ea, aut autem eaque recusandae aliquam nulla tempora laboriosam possimus praesentium repellat quos blanditiis porro voluptatibus."
 
 const app = express()
@@ -37,8 +35,9 @@ app.get("/" , (req, res) => {
 })
 
 app.get("/about" , (req, res) => { 
-    res.render("about", {about: aboutContent})
+    res.render("about")
 })
+
 
 app.get("/contact" , (req, res) => { 
     res.render("contact", {contact: contactContent})
@@ -92,15 +91,10 @@ app.post('/login' , (req,res) =>{
     res.redirect("/")
   }
 })
-
-
-
   app.get("/delete", (req,res) =>{
     res.render("login") 
   })
 
-
-  
 app.post("/deletepost" , (req,res) =>{
   const cheecedItems = req.body.chkbox
   

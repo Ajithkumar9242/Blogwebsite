@@ -33,41 +33,35 @@ a:hover {
 }
 
 .root{
-    margin: 0;
+    margin-left: 2em;
     padding: 0;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 2em;
-    flex: auto;
+    gap: 2.3em;
+    
 }
 
 
 .card {
+    flex-basis: auto;
     box-sizing: border-box;
     width: 290px;
     height: 354px;
     border: 1px solid white;
-    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     backdrop-filter: blur(6px);
-    border-radius: 17px;
     text-align: center;
     cursor: pointer;
     transition: all 0.5s;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     user-select: none;
     font-weight: bolder;
     flex-direction: column;
-  
   }
+
   
-  .card:hover {
-    border: 1px solid black;
-    transform: scale(1.05);
-  }
-  
-  .card:active {
-    transform: scale(0.95) rotateZ(1.7deg);
-  }

@@ -84,7 +84,9 @@ const myDetail = {
 
 app.post('/login' , (req,res) =>{
   if(req.body.name === myDetail.name && req.body.password === myDetail.password){
-    res.redirect("/deleteejs")
+    Post.find({}, function(err, posts){
+      res.render("delete", {startingContent: homeDetails, posts: posts})
+      })
     console.log("SUCESS");
   }else{
     res.redirect("/")
@@ -94,20 +96,14 @@ app.post('/login' , (req,res) =>{
 
 
   app.get("/delete", (req,res) =>{
-    res.render("login")
-    
-  })
-
-  app.get("/deleteejs", (req,res) =>{
-    Post.find({}, function(err, posts){
-    res.render("delete", {startingContent: homeDetails, posts: posts})
-    })
+    res.render("login") 
   })
 
 
   
 app.post("/deletepost" , (req,res) =>{
   const cheecedItems = req.body.chkbox
+  
   Post.findByIdAndRemove(cheecedItems, function (err) {
     if (err) {
       console.log(err);

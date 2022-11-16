@@ -1,0 +1,38 @@
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{ 
+    height: 65vh;
+    width: 25vw;
+    border-radius: 12px;
+background: #e0e0e0;
+box-shadow:  13px 13px 25px #acacac,
+             -13px -13px 25px #ffffff;
+}
+.pic{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pic img{
+    width: auto;
+    height: 35vh;
+}
+.title{
+    margin-top: 1em;
+    text-align: center;
+}
+.desc{
+    margin-top: 2em;
+}
+li{
+    list-style: "*";
+}
+
+.links{
+    display: flex;
+    justify-content: space-evenly;
+}

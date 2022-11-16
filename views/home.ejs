@@ -2,18 +2,22 @@
 
 <h1>HOME</h1>
 <p><%= startingContent %></p>
+<div class="root">
 
 <% posts.forEach(function(post) { %>
-    <div class="root">
+       
     <div class="card">
         <div class="title">
-        <h1> <%= post.title %> </h1>
+        <h1> <%= post.title.substring(0,10) %> </h1>
         </div>
         <div class="content">
-    <p> <%= post.content.substring(0,50) + " ..." %>
-    <a href="/posts/<%= post._id %>">Read More</a>
+            
+    <p> <%= post.content.substring(0,30) + " ..." %>
     </p>
-    </div>
+    <a href="/posts/<%= post._id %>">Read More</a>
+
+</div>
+    
     </div>
     <%  }) %>
 </div>

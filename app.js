@@ -6,10 +6,6 @@ const mongoose = require('mongoose')
 
 let posts = []
 
-const homeDetails = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem fugiat delectus iure totam, odio, tempore ea, aut autem eaque recusandae aliquam nulla tempora laboriosam possimus praesentium repellat quos blanditiis porro voluptatibus."
-
-const contactContent = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem fugiat delectus iure totam, odio, tempore ea, aut autem eaque recusandae aliquam nulla tempora laboriosam possimus praesentium repellat quos blanditiis porro voluptatibus."
-
 const app = express()
 
 app.set("view engine" , "ejs")
@@ -29,7 +25,7 @@ const Post = mongoose.model("Post", postSchema);
 
 app.get("/" , (req, res) => { 
   Post.find({}, function(err, posts){
-    res.render("home", {startingContent: homeDetails, posts: posts})
+    res.render("home", { posts: posts})
   })
     
 })
@@ -40,7 +36,7 @@ app.get("/about" , (req, res) => {
 
 
 app.get("/contact" , (req, res) => { 
-    res.render("contact", {contact: contactContent})
+    res.render("contact")
 })
 
 app.get("/compose", (req,res) =>{
@@ -84,9 +80,10 @@ const myDetail = {
 app.post('/login' , (req,res) =>{
   if(req.body.name === myDetail.name && req.body.password === myDetail.password){
     Post.find({}, function(err, posts){
-      res.render("delete", {startingContent: homeDetails, posts: posts})
-      })
+      res.render("delete", { posts: posts})
     console.log("SUCESS");
+
+      })
   }else{
     res.redirect("/")
   }

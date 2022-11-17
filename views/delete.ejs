@@ -1,19 +1,21 @@
 <%- include("header"); -%>
 
-<div class="root">
+<div class="roott">
 <h1>DELETE SECTION</h1>
-<p><%= startingContent %></p>
+
 
 <% posts.forEach(function(post) { %>
+
     <div class="div2">
         <form action="deletepost" method="post">
 
-        <input type="checkbox" name="chkbox" value="<%= post._id %>" onchange="this.form.submit()">
-    <h1> <%= post.title %> </h1>
-    <p> <%= post.content.substring(0,100) + " ..." %>
+        <input type="checkbox" name="chkbox" value="<%= post._id %>" onchange="this.form.submit()" class="chekbox"/>
+    </form>
+
+    <h1> <%= post.title.substring(0,10) %> </h1>
+    <p> <%= post.content.substring(0,30) + " ..." %>
     <a href="/posts/<%= post._id %>">Read More</a>
     </p>
-        </form>
 </div>
     <%  }) %>
 </div>

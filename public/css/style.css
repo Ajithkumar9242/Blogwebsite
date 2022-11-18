@@ -3,6 +3,7 @@ body {
     font-family: "Open Sans", sans-serif;
     margin: 0;
     background: rgba(217, 217, 217, 0.58);
+    scroll-behavior: smooth;
    
 }
 a {

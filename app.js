@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static("public"))
 
 
-mongoose.connect("mongodb+srv://Ajith:admin-ajith@cluster0.tfeyweo.mongodb.net/blogDB");
+mongoose.connect("mongodb+srv://Ajith:@cluster0.tfeyweo.mongodb.net/blogDB");
 
 const postSchema = {
   title: {type: String, required: true},
